@@ -1,11 +1,13 @@
 package com.example.mymobliesafe;
 
+import com.example.utils.Md5Utils;
 import com.example.utils.MyConstants;
 import com.example.utils.SpTools;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -66,9 +68,11 @@ public class HomeActivity extends Activity {
 				// TODO Auto-generated method stub
 				switch (position) {
 				case 0://手机防盗
-					showSettingPwdDialog();
+					showPwdDialog();
 					break;
-
+				case 8://设置中心
+					
+					break;
 				default:
 					break;
 				}
@@ -77,6 +81,63 @@ public class HomeActivity extends Activity {
 		});
 	}
 
+	protected void showPwdDialog() {
+		String password = SpTools.getString(getApplicationContext(), MyConstants.PASSWORD, "");
+		if (TextUtils.isEmpty(password)) {
+			//如果为空  进入showSettingPwdDialog(); 设置密码对话框页面
+			showSettingPwdDialog(); 
+		}else {
+			//进入输入密码对话框也面
+			showInputPwdDialog();
+		}
+		
+	}
+	private void showInputPwdDialog() {
+		final String password = SpTools.getString(getApplicationContext(), MyConstants.PASSWORD, "");
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		View view = View.inflate(getApplicationContext(), R.layout.dialog_input_password, null);
+		
+		final EditText mEtPassOne = (EditText) view.findViewById(R.id.et_dialog_input_password_passone);
+		Button mBtSetPass = (Button) view.findViewById(R.id.bt_dialog_input_password_setpass);
+		Button mBtCancel = (Button) view.findViewById(R.id.bt_dialog_input_password_cancel);
+		builder.setView(view);
+		
+		mBtSetPass.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				String passOne = mEtPassOne.getText().toString().trim();
+				if (TextUtils.isEmpty(passOne)) {
+					Toast.makeText(getApplicationContext(), "密码不能为空", Toast.LENGTH_LONG).show();
+					return;
+				}else {
+					String passone = Md5Utils.md5(passOne);
+					String passMd5 = SpTools.getString(getApplicationContext(), MyConstants.PASSWORD, "");
+					if (passone.equals(passMd5)) {
+						//表示密码正确  进入手机防盗页面
+						Intent intent = new Intent(HomeActivity.this, LostFindActivity.class);
+						startActivity(intent);
+					}else {
+						Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_LONG).show();
+					}
+					//dialog.dismiss();
+				}
+			}
+		});
+		
+		mBtCancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				
+			}
+		});
+		dialog = builder.create();
+		dialog.show();
+		
+	}
 	protected void showSettingPwdDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		View view = View.inflate(getApplicationContext(), R.layout.dialog_setting_password, null);
@@ -103,7 +164,9 @@ public class HomeActivity extends Activity {
 					return;
 				}else {
 					//保存密码
-					SpTools.putString(getApplicationContext(), MyConstants.PASSWORD, passOne);
+					String passone = Md5Utils.md5(passOne);
+					System.out.println("加密后的密码" +passone);
+					SpTools.putString(getApplicationContext(), MyConstants.PASSWORD, passone);
 					dialog.dismiss();
 					
 				}

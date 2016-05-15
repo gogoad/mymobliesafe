@@ -25,6 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.mymobliesafe.HomeActivity"></activity>
+        <activity android:name="com.example.mymobliesafe.LostFindActivity"></activity>
+        <activity android:name="com.example.mymobliesafe.Setup1Activity"></activity>
+        <activity android:name="com.example.mymobliesafe.Setup2Activity"></activity>
+        <activity android:name="com.example.mymobliesafe.Setup3Activity"></activity>
+        <activity android:name="com.example.mymobliesafe.Setup4Activity"></activity>
     </application>
 
 </manifest>
