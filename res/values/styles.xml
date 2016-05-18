@@ -26,4 +26,15 @@
         <item name="android:textColor">#000000</item>
     </style>
 
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
+=======
+     <style name="ContentStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+>>>>>>> 第四次提交 手机防盗功能完成
 </resources>

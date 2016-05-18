@@ -71,7 +71,12 @@ public class HomeActivity extends Activity {
 					showPwdDialog();
 					break;
 				case 8://设置中心
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
 					
+=======
+					Intent intent = new Intent(HomeActivity.this, SettingCenterActivity.class);
+					startActivity(intent);
+>>>>>>> 第四次提交 手机防盗功能完成
 					break;
 				default:
 					break;
@@ -118,6 +123,7 @@ public class HomeActivity extends Activity {
 						//表示密码正确  进入手机防盗页面
 						Intent intent = new Intent(HomeActivity.this, LostFindActivity.class);
 						startActivity(intent);
+						
 					}else {
 						Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_LONG).show();
 					}

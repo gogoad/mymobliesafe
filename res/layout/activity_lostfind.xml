@@ -13,6 +13,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -49,10 +50,74 @@
         android:gravity="center_vertical"
         android:text="@string/gps"
         android:textSize="18sp" />
+=======
+            style="@style/ContentStyle"
+            android:text="@string/safe_number" />
+
+        <TextView
+            android:id="@+id/tv_safe_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="13812345678"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/ContentStyle"
+            android:text="@string/setup4_isprotected" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/lock" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:layout_width="match_parent"
+        android:onClick="reEnter"
+        android:clickable="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape_selector"
+        android:text="@string/reenter_setup" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
+>>>>>>> 第四次提交 手机防盗功能完成
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
         android:drawableLeft="@android:drawable/btn_star_big_on"
         android:gravity="center_vertical"
         android:text="@string/wipedata"
@@ -73,5 +138,39 @@
         android:gravity="center_vertical"
         android:text="@string/music"
         android:textSize="18sp" />
+=======
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#5000"
+        android:padding="3dp"
+        android:text="@string/function"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/gps" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/music" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/wipedata" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/lockscreen" />
+>>>>>>> 第四次提交 手机防盗功能完成
 
 </LinearLayout>

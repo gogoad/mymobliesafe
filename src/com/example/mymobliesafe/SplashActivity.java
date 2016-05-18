@@ -12,7 +12,7 @@ import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.bean.UrlBean;
+import com.example.domain.UrlBean;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;

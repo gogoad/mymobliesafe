@@ -1,21 +1,76 @@
 package com.example.mymobliesafe;
 
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
+=======
+import com.example.utils.EncryptTools;
+>>>>>>> 第四次提交 手机防盗功能完成
+import com.example.utils.MyConstants;
+import com.example.utils.SpTools;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Setup3Activity extends BaseSetupAcitivity {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		initView();
-	}
+
+	private EditText mSafenumber;
 
 	@Override
 	public void initView() {
 		setContentView(R.layout.activity_setup3);
+		mSafenumber = (EditText) findViewById(R.id.et_setup3_safenumber);
+	}
+
+	@Override
+	public void initData() {
+		String safenumber = SpTools.getString(getApplicationContext(), MyConstants.SAFENUMBER, "");
+		mSafenumber.setText(safenumber);
+		super.initData();
+	}
+	
+	@Override
+	public void initEvent() {
+		
+		super.initEvent();
+	}
+
+	public void selectSafeNumber(View v) {
+		Intent intent = new Intent(Setup3Activity.this, FriendsActivity.class);
+		startActivityForResult(intent, 1);//启动显示好友界面
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data != null) {
+			//用户选择数据来关闭联系人界面,而不是直接点击返回按钮
+			//取数据
+			String number = data.getStringExtra(MyConstants.SAFENUMBER);
+			mSafenumber.setText(number);
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	@Override
+	public void next(View v) {
+		String number = mSafenumber.getText().toString().trim();
+		if (TextUtils.isEmpty(number)) {
+			Toast.makeText(getApplicationContext(), "请先选择或输入安全号码", Toast.LENGTH_LONG).show();
+			//不调用父类的方法进行页面切换
+			return;
+		}else{
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
+=======
+			//对安全号码加密
+			number = EncryptTools.encrypt(MyConstants.MUSIC, number);
+>>>>>>> 第四次提交 手机防盗功能完成
+			//保存安全号码
+			SpTools.putString(getApplicationContext(), MyConstants.SAFENUMBER, number);
+		}
+		super.next(v);
 	}
 
 	@Override

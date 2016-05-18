@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 public abstract class BaseSetupAcitivity extends Activity {
@@ -19,6 +20,20 @@ public abstract class BaseSetupAcitivity extends Activity {
 		initView();
 		//初始化手势识别器
 		initGesture();
+		//初始化数据
+		initData();
+		//初始化事件
+		initEvent();
+		
+	}
+
+	public void initEvent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void initData() {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -45,12 +60,12 @@ public abstract class BaseSetupAcitivity extends Activity {
 				}
 				if (Math.abs(e2.getRawX() - e1.getRawX()) > 100) {
 					//向右滑，上一页
-					next();
+					next(null);
 					
 				}
 				if (Math.abs(e1.getRawX() - e2.getRawY()) > 100)  {
 					//向左滑，下一页
-					prev();
+					prev(null);
 				}
 				return super.onFling(e1, e2, velocityX, velocityY);
 			}
@@ -60,12 +75,12 @@ public abstract class BaseSetupAcitivity extends Activity {
 
 	public abstract void initView();
 
-	public void next() {
+	public void next(View v) {
 		nextActivity();
 		nextAnimation();
 	}
 
-	public void prev() {
+	public void prev(View v) {
 		//画面切换
 		prevActivity();
 		//动画播放 

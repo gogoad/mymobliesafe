@@ -17,7 +17,7 @@ public class SpTools {
 	
 	public static void putBoolean(Context context,String key,Boolean value){
 		SharedPreferences sp = context.getSharedPreferences(MyConstants.SPFILE, Context.MODE_PRIVATE);
-		sp.edit().putBoolean(key, value).commit();//�������
+		sp.edit().putBoolean(key, value).commit();
 	}
 	
 	public static boolean getBoolean(Context context,String key,boolean defValue){

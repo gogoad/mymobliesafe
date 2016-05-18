@@ -13,12 +13,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setup4_isprotected" />
+<<<<<<< a85ebdb4ce72494761159c4ab03551e2f8835d3c
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/setup4_protected" />
-
+ 
+=======
+>>>>>>> 第四次提交 手机防盗功能完成
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
