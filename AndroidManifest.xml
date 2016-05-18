@@ -30,6 +30,11 @@
         <activity android:name="com.example.mymobliesafe.Setup2Activity"></activity>
         <activity android:name="com.example.mymobliesafe.Setup3Activity"></activity>
         <activity android:name="com.example.mymobliesafe.Setup4Activity"></activity>
+        <receiver android:name="com.example.receiver.BootCompleteReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

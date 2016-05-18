@@ -20,16 +20,16 @@ public class LostFindActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		//如果第一次访问该界面，要先进入设置向导界面
-		boolean mSetUp = SpTools.getBoolean(getApplicationContext(), MyConstants.ISSETUP, false);
+		
 		// 进入过设置向导界面，直接显示本界面
-		if (mSetUp) {
+		if (SpTools.getBoolean(getApplicationContext(), MyConstants.ISSETUP, false)) {
+			initView();
 			
+		}else {
 			//进入设置向导页面
 			Intent intent = new Intent(LostFindActivity.this, Setup1Activity.class);
 			startActivity(intent);
-		}else {
-			
-			initView();
+			finish();
 		}
 		
 	}

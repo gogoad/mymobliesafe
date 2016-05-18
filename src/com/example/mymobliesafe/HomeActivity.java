@@ -118,6 +118,7 @@ public class HomeActivity extends Activity {
 						//表示密码正确  进入手机防盗页面
 						Intent intent = new Intent(HomeActivity.this, LostFindActivity.class);
 						startActivity(intent);
+						
 					}else {
 						Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_LONG).show();
 					}

@@ -22,7 +22,7 @@
  	<string name="setup2_isbindsim">点击绑定/解绑sim卡</string>
  	<string name="setup3_sendtophone">sim卡如果发送变化:\n报警短信就会给安全号码</string>
  	<string name="setup3_selectphone">选择安全号码</string>
- 	<string name="setup4_isprotected">打钩开启防盗保护</string>
+ 	<string name="setup4_isprotected">防盗保护是否开启</string>
  	<string name="setup4_protected">防盗保护已经开启</string>
  	<string name="setup4_setted">设置完成</string>
  	<string name="safeisstart">防盗保护是否开启:</string>
