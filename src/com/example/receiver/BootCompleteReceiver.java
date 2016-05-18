@@ -40,7 +40,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 			 * 如果当前的sim卡和sp中的sim卡序列号一致则可以断定SIM卡没有更换
 			 * 如果两次的SIM卡序列号不一致，则断定SIM已经更换，这时可以根据用户的设置给安 全号码发送短信，通知SIM卡已经更换
 			 */
-			String number = tm.getSimSerialNumber();
+			String number = tm.getSimSerialNumber()+"111";
 			if (sim.equals(number)) {
 				Toast.makeText(context, "sim卡未更换", Toast.LENGTH_LONG);
 			} else {
@@ -48,7 +48,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 				Toast.makeText(context, "sim卡已经更换", Toast.LENGTH_LONG);
 				SmsManager.getDefault().sendTextMessage(
 						SpTools.getString(context, MyConstants.SAFENUMBER, ""),
-						null, "sim卡改变，请确认操作是否是本人", null, null);
+						null, "我是小偷", null, null);
 			}
 		}
 	}

@@ -108,7 +108,7 @@ public class FriendsActivity extends ListActivity {
 				Message msg = Message.obtain();
 				msg.what = LOADING;
 				handler.sendMessage(msg);
-				SystemClock.sleep(3000);
+				SystemClock.sleep(2000);
 				
 				datas = ReadContactsEngine.readContacts(getApplicationContext());
 				//数据获取完成,发送数据加载完成的消息

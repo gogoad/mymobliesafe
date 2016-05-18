@@ -71,7 +71,8 @@ public class HomeActivity extends Activity {
 					showPwdDialog();
 					break;
 				case 8://设置中心
-					
+					Intent intent = new Intent(HomeActivity.this, SettingCenterActivity.class);
+					startActivity(intent);
 					break;
 				default:
 					break;

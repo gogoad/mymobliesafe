@@ -13,65 +13,102 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/safeisstart"
-            android:textSize="18sp" />
+            style="@style/ContentStyle"
+            android:text="@string/safe_number" />
 
-        <ImageView
+        <TextView
+            android:id="@+id/tv_safe_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="13812345678"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/ContentStyle"
+            android:text="@string/setup4_isprotected" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
             android:src="@drawable/lock" />
     </RelativeLayout>
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:text="@string/reenter_setup"
-        android:textSize="18sp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:layout_width="match_parent"
+        android:onClick="reEnter"
+        android:clickable="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape_selector"
+        android:text="@string/reenter_setup" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listview_divider" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/btn_star_big_on"
-        android:gravity="center_vertical"
-        android:text="@string/simring"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#5000"
+        android:padding="3dp"
+        android:text="@string/function"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/btn_star_big_on"
-        android:gravity="center_vertical"
-        android:text="@string/gps"
-        android:textSize="18sp" />
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/gps" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/btn_star_big_on"
-        android:gravity="center_vertical"
-        android:text="@string/wipedata"
-        android:textSize="18sp" />
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/music" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/btn_star_big_on"
-        android:gravity="center_vertical"
-        android:text="@string/lockscreen"
-        android:textSize="18sp" />
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/wipedata" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/btn_star_big_on"
-        android:gravity="center_vertical"
-        android:text="@string/music"
-        android:textSize="18sp" />
+        style="@style/ContentStyle"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center"
+        android:text="@string/lockscreen" />
 
 </LinearLayout>

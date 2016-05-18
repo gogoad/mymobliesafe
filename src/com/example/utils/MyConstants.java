@@ -7,4 +7,5 @@ public interface MyConstants {
 	String SIM = "sim";//是否绑定sim卡
 	String SAFENUMBER = "safenumber";//是否是安全号码
 	String PROTECTTING = "protectting";//是否开启安全保护
+	int MUSIC = 120;
 }

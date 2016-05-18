@@ -1,5 +1,6 @@
 package com.example.mymobliesafe;
 
+import com.example.utils.EncryptTools;
 import com.example.utils.MyConstants;
 import com.example.utils.SpTools;
 
@@ -58,6 +59,8 @@ public class Setup3Activity extends BaseSetupAcitivity {
 			//不调用父类的方法进行页面切换
 			return;
 		}else{
+			//对安全号码加密
+			number = EncryptTools.encrypt(MyConstants.MUSIC, number);
 			//保存安全号码
 			SpTools.putString(getApplicationContext(), MyConstants.SAFENUMBER, number);
 		}

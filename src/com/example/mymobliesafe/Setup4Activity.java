@@ -25,14 +25,13 @@ public class Setup4Activity extends BaseSetupAcitivity {
 	
 	@Override
 	public void initData() {
-		//初始化复选框的值 看服务是否开启
-		//如果服务开启，打钩，否则不打钩
-		if (ServiceUtils.isServicesRunning(getApplicationContext(), "com.example.service.LostFindService")) {
+		if (ServiceUtils.isServiceRunning(getApplicationContext(), "com.example.service.LostFindService")) {
+			
 			mCbProtect.setChecked(true);
 			mCbProtect.setText("防盗保护已开启");
 		}else {
 			mCbProtect.setChecked(false);
-			mCbProtect.setText("防盗保护未开启");
+			mCbProtect.setText("防盗保护已关闭");
 		}
 		super.initData();
 	}
@@ -43,17 +42,16 @@ public class Setup4Activity extends BaseSetupAcitivity {
 			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				// TODO Auto-generated method stub
 				if (isChecked) {
+					System.out.println("check true");
 					mCbProtect.setText("防盗保护已开启");
-					Intent service = new Intent(Setup4Activity.this,LostFindService.class);
-					//启动防盗保护的服务
-					startService(service);
+					Intent intent = new Intent(Setup4Activity.this, LostFindService.class);
+					startService(intent);
 				}else {
-					mCbProtect.setText("防盗保护未开启");
-					Intent service = new Intent(Setup4Activity.this,LostFindService.class);
-					//启动防盗保护的服务
-					stopService(service);
+					System.out.println("check false");
+					mCbProtect.setText("防盗保护已关闭");
+					Intent intent = new Intent(Setup4Activity.this, LostFindService.class);
+					stopService(intent);
 				}
 			}
 		});
@@ -62,7 +60,7 @@ public class Setup4Activity extends BaseSetupAcitivity {
 
 	@Override
 	public void nextActivity() {
-		SpTools.getBoolean(getApplicationContext(), MyConstants.ISSETUP, true);
+		SpTools.putBoolean(getApplicationContext(), MyConstants.ISSETUP, true);
 		startActivity(LostFindActivity.class);
 		finish();
 	}
