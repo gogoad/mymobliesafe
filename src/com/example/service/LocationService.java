@@ -75,7 +75,7 @@ public class LocationService extends Service {
 				tv_mess.append("speed:" + speed + "\n");
 				//获取安全号码
 				String mSafeNumber = SpTools.getString(getApplicationContext(), MyConstants.SAFENUMBER,"");
-				mSafeNumber = EncryptTools.decryption(MyConstants.MUSIC, mSafeNumber);
+				//mSafeNumber = EncryptTools.decryption(MyConstants.MUSIC, mSafeNumber);
 				//发送短信给安全号码
 				SmsManager sm = SmsManager.getDefault();
 				sm.sendTextMessage(mSafeNumber, null, tv_mess+"", null, null);

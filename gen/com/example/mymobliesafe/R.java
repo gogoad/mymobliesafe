@@ -78,29 +78,30 @@ containing a value of this type.
         public static final int unlock=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0017;
-        public static final int bt_dialog_input_password_cancel=0x7f0b000b;
-        public static final int bt_dialog_input_password_setpass=0x7f0b000a;
-        public static final int bt_dialog_setting_password_cancel=0x7f0b000f;
-        public static final int bt_dialog_setting_password_setpass=0x7f0b000e;
-        public static final int bt_setup2_bindsim=0x7f0b0005;
-        public static final int cb_settingcenter_autoupdate_checked=0x7f0b0016;
-        public static final int cb_setup4_isprotected=0x7f0b0008;
-        public static final int et_dialog_input_password_passone=0x7f0b0009;
-        public static final int et_dialog_setting_password_passone=0x7f0b000c;
-        public static final int et_dialog_setting_password_passtwo=0x7f0b000d;
-        public static final int et_setup3_safenumber=0x7f0b0007;
+        public static final int action_settings=0x7f0b0018;
+        public static final int bt_dialog_input_password_cancel=0x7f0b000c;
+        public static final int bt_dialog_input_password_setpass=0x7f0b000b;
+        public static final int bt_dialog_setting_password_cancel=0x7f0b0010;
+        public static final int bt_dialog_setting_password_setpass=0x7f0b000f;
+        public static final int bt_setup2_bindsim=0x7f0b0006;
+        public static final int cb_settingcenter_autoupdate_checked=0x7f0b0017;
+        public static final int cb_setup4_isprotected=0x7f0b0009;
+        public static final int et_dialog_input_password_passone=0x7f0b000a;
+        public static final int et_dialog_setting_password_passone=0x7f0b000d;
+        public static final int et_dialog_setting_password_passtwo=0x7f0b000e;
+        public static final int et_setup3_safenumber=0x7f0b0008;
         public static final int gv_home_menus=0x7f0b0000;
-        public static final int iv_home_gv_icon=0x7f0b0010;
-        public static final int iv_setup2_isbind=0x7f0b0006;
+        public static final int iv_home_gv_icon=0x7f0b0011;
+        public static final int iv_setup2_isbind=0x7f0b0007;
         public static final int pb_splash_download_progress=0x7f0b0004;
         public static final int rl_splash_root=0x7f0b0002;
-        public static final int tv_friends_item_name=0x7f0b0012;
-        public static final int tv_friends_item_phone=0x7f0b0013;
-        public static final int tv_home_gv_title=0x7f0b0011;
+        public static final int sciv_setting_center_autoupdate=0x7f0b0005;
+        public static final int tv_friends_item_name=0x7f0b0013;
+        public static final int tv_friends_item_phone=0x7f0b0014;
+        public static final int tv_home_gv_title=0x7f0b0012;
         public static final int tv_safe_phone=0x7f0b0001;
-        public static final int tv_settingcenter_autoupdate_content=0x7f0b0015;
-        public static final int tv_settingcenter_autoupdate_title=0x7f0b0014;
+        public static final int tv_settingcenter_autoupdate_content=0x7f0b0016;
+        public static final int tv_settingcenter_autoupdate_title=0x7f0b0015;
         public static final int tv_splash_version_name=0x7f0b0003;
     }
     public static final class layout {
@@ -151,6 +152,11 @@ containing a value of this type.
         public static final int sample_device_admin=0x7f080027;
         public static final int sample_device_admin_description=0x7f080025;
         public static final int setting_center=0x7f080028;
+        public static final int setting_center_black=0x7f08002d;
+        public static final int setting_center_black_close_openandclose=0x7f08002c;
+        public static final int setting_center_close=0x7f08002b;
+        public static final int setting_center_openandclose=0x7f08002a;
+        public static final int setting_center_update=0x7f080029;
         public static final int setting_password=0x7f080004;
         public static final int setup1_title=0x7f08000b;
         public static final int setup2_isbindsim=0x7f080012;

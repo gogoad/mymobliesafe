@@ -60,7 +60,7 @@ public class Setup3Activity extends BaseSetupAcitivity {
 			return;
 		}else{
 			//对安全号码加密
-			number = EncryptTools.encrypt(MyConstants.MUSIC, number);
+			//number = EncryptTools.encrypt(MyConstants.MUSIC, number);
 			//保存安全号码
 			SpTools.putString(getApplicationContext(), MyConstants.SAFENUMBER, number);
 		}

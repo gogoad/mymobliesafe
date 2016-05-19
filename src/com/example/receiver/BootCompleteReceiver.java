@@ -1,11 +1,13 @@
 package com.example.receiver;
 
+import com.example.service.LostFindService;
 import com.example.utils.MyConstants;
 import com.example.utils.SpTools;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.sax.StartElementListener;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -20,10 +22,11 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 		/*
 		 * 从sp中获取是否开启手机保护信息 如果没有开启则直接返回
 		 */
-		boolean isprotectting = SpTools.getBoolean(context,
-				MyConstants.PROTECTTING, false);
-		if (!isprotectting) {
-			return;
+		
+		if (SpTools.getBoolean(context,
+				MyConstants.PROTECTTING, false)) {
+			Intent intent2 =new Intent(context,LostFindService.class);
+			context.startService(intent2);
 		}
 		/*
 		 * 从sp中获取已经绑定的sim卡序列号 如果没有绑定sim卡则返回

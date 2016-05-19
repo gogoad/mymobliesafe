@@ -13,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.domain.UrlBean;
+import com.example.utils.MyConstants;
+import com.example.utils.SpTools;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -35,6 +37,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -68,6 +71,20 @@ public class SplashActivity extends Activity {
 		checkVersion();
 	}
 
+	/**
+	 * 耗时的功能封装，只要耗时的处理，都放到此方法
+	 */
+	private void timeInitialization(){
+		//一开始动画，就应该干耗时的业务（网络，本地数据初始化，数据的拷贝等）
+		if (SpTools.getBoolean(getApplicationContext(), MyConstants.AUTOUPDATE, false)) {
+			//true 自动更新
+			// 检测服务器的版本
+			checkVersion();
+		}
+		//增加自己的耗时功能处理
+		
+	}
+	
 	private void initAnimation() {
 		// 渐变动画
 		AlphaAnimation aa = new AlphaAnimation(0.0f, 1.0f);
@@ -95,8 +112,37 @@ public class SplashActivity extends Activity {
 		as.addAnimation(ra);
 		as.addAnimation(sa);
 		//rl.startAnimation(aa);
+		
+		
+		as.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				timeInitialization();
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				//动画播完进入主界面
+				
+				//判断是否进行服务器版本的检测
+				if (!SpTools.getBoolean(getApplicationContext(), MyConstants.AUTOUPDATE, false)) {
+					//不做版本检测，直接进入主界面
+					enterHome();
+				} else {
+					//界面的衔接是有自动更新来完成，在此不做处理
+				}
+				
+			}
+		});
 		rl.startAnimation(as);
-
 	}
 
 	private void initView() {

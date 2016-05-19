@@ -8,4 +8,5 @@ public interface MyConstants {
 	String SAFENUMBER = "safenumber";//是否是安全号码
 	String PROTECTTING = "protectting";//是否开启安全保护
 	int MUSIC = 120;
+	String AUTOUPDATE = "autoupdate";//自动更新设置
 }
