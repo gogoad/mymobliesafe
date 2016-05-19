@@ -4,7 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-   
+     <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.mymobliesafe" >
+    </instrumentation>
+    
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -29,6 +33,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner"></uses-library>
         <activity
             android:name="com.example.mymobliesafe.SplashActivity"
             android:label="@string/app_name" >
@@ -46,6 +51,7 @@
         <activity android:name="com.example.mymobliesafe.Setup4Activity"></activity>
         <activity android:name="com.example.mymobliesafe.FriendsActivity"></activity>
         <activity android:name="com.example.mymobliesafe.SettingCenterActivity"></activity>
+        <activity android:name="com.example.mymobliesafe.TelSmsSafeActivity"></activity>
        
         <receiver android:name="com.example.receiver.BootCompleteReceiver">
             <intent-filter >

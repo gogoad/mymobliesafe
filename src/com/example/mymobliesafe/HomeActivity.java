@@ -67,10 +67,17 @@ public class HomeActivity extends Activity {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				switch (position) {
+				case 1:
+				{
+					Intent intent = new Intent(HomeActivity.this, TelSmsSafeActivity.class);
+					startActivity(intent);
+					break;
+				}
 				case 0://手机防盗
 					showPwdDialog();
 					break;
 				case 8://设置中心
+			
 					Intent intent = new Intent(HomeActivity.this, SettingCenterActivity.class);
 					startActivity(intent);
 					break;

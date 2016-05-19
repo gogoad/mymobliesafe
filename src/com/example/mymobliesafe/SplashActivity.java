@@ -67,8 +67,7 @@ public class SplashActivity extends Activity {
 		initData();
 		// 初始化动画
 		initAnimation();
-		// 检查版本更新
-		checkVersion();
+	
 	}
 
 	/**
@@ -401,6 +400,7 @@ public class SplashActivity extends Activity {
 		
 		Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
 	protected UrlBean parseJson(StringBuilder json) throws JSONException {
