@@ -6,12 +6,14 @@ import java.util.List;
 import com.example.dao.BlackNumberDao;
 import com.example.domain.BlackBean;
 import com.example.domain.BlackTable;
+import com.example.utils.MyConstants;
 
 import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.opengl.Visibility;
@@ -101,15 +103,28 @@ public class TelSmsSafeActivity extends Activity {
 				switch (v.getId()) {
 				case R.id.tv_popup_black_contacts:// 从联系人导入
 					System.out.println("从联系人导入");
+					{
+						Intent intent = new Intent(TelSmsSafeActivity.this, FriendsActivity.class);
+						startActivityForResult(intent, 1);
+					}
 					break;
 				case R.id.tv_popup_black_phonelog:// 从电话日志导入
 					System.out.println("从电话日志导入");
+					{
+						Intent intent = new Intent(TelSmsSafeActivity.this, CalllogsActivity.class);
+						startActivityForResult(intent, 1);
+					}
 					break;
 				case R.id.tv_popup_black_shoudong:// 手动导入
-					System.out.println("手动导入");
+					//System.out.println("手动导入");
+					showInputBlackNumberDialog("");
 					break;
 				case R.id.tv_popup_black_smslog:// 从短信导入
 					System.out.println("从短信导入");
+					{
+						Intent intent = new Intent(TelSmsSafeActivity.this, SmslogsActivity.class);
+						startActivityForResult(intent, 1);
+					}
 					break;
 
 				default:
@@ -133,7 +148,17 @@ public class TelSmsSafeActivity extends Activity {
 		sa.setDuration(200);
 	}
 
-
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		if (data != null) {
+			String phone = data.getStringExtra(MyConstants.SAFENUMBER);
+			showInputBlackNumberDialog(phone);
+			adapter.notifyDataSetChanged();//更新数据界面
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
 	private void showPopupWindow() {
 		if (pw != null && pw.isShowing()) {
 			pw.dismiss();
@@ -193,23 +218,23 @@ public class TelSmsSafeActivity extends Activity {
 	}
 
 
-
+	private List<BlackBean> moreDatas;
 	private void initData() {
 		//从db中取黑名单数据，是一个耗时的操作，必须在子线程中取数据
 		new Thread() {
-			private List<BlackBean> moreDatas;
+			
 
 			@Override
 			public void run() {
 				//取数据之前，发个消息显示正在加载数据的进度条
 				//handler.obtainMessage(LOADING).sendToTarget();
-				Message msg = Message.obtain();
-				msg.what = LOADING;
-				handler.sendMessage(msg);
+				handler.obtainMessage(LOADING).sendToTarget();
+
+				// 加载更多数据
 				moreDatas = blackNumberDao.getMoreDatas(MOREDATASCOUNTS, datas.size());
-				SystemClock.sleep(2000);
-				datas = blackNumberDao.getAllDatas();
-				//取数据完成，发消息通知取数据完成
+
+				datas.addAll(moreDatas);// 把一个容器的所有数据加进来
+				// 取数据完成，发消息通知取数据完成
 				handler.obtainMessage(FINSIH).sendToTarget();
 				super.run();
 			}
@@ -225,16 +250,33 @@ public class TelSmsSafeActivity extends Activity {
 				mPbLoading.setVisibility(View.VISIBLE);
 				break;
 			case FINSIH:
-				if (datas.size() != 0) {
+				if (moreDatas.size() != 0) {
+					// 显示listview
 					mListSafeNumber.setVisibility(View.VISIBLE);
+
+					// 隐藏没有数据
 					mNodata.setVisibility(View.GONE);
+
+					// 隐藏加载数据的进度
 					mPbLoading.setVisibility(View.GONE);
-					//更新数据
-					//通知listview重新去adapter中的数据
-					adapter.notifyDataSetChanged();
-				}else {
+
+					// 更新数据
+					adapter.notifyDataSetChanged();// 通知listview重新去adapter中的数据
+				} else {// 没有取到数据
+
+					if (datas.size() != 0) {// 分批加载数据，没有更多数据
+						Toast.makeText(getApplicationContext(), "没有更多数据", 1)
+								.show();
+						return;
+					}
+					// 没有数据
+					// 隐藏listview
 					mListSafeNumber.setVisibility(View.GONE);
+
+					// 显示没有数据
 					mNodata.setVisibility(View.VISIBLE);
+
+					// 隐藏加载数据的进度
 					mPbLoading.setVisibility(View.GONE);
 				}
 				break;
@@ -362,7 +404,7 @@ public class TelSmsSafeActivity extends Activity {
 		showPopupWindow();
 	}
 
-	private void showInputBlackNumberDialog() {
+	private void showInputBlackNumberDialog(String phone) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		View view = View.inflate(getApplicationContext(), R.layout.dialog_addblacknumber, null);
 		final EditText mEtblack = (EditText) view.findViewById(R.id.et_telsmssafe_blacknumber);
@@ -371,6 +413,7 @@ public class TelSmsSafeActivity extends Activity {
 		Button mBtadd = (Button) view.findViewById(R.id.bt_telsmssafe_add);
 		Button mBtcancel = (Button) view.findViewById(R.id.bt_telsmssafe_cancel);
 	
+		mEtblack.setText(phone);
 		mBtcancel.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -412,9 +455,13 @@ public class TelSmsSafeActivity extends Activity {
 				adapter = new MyAdapter();
 				adapter.notifyDataSetChanged();//更新数据界面
 				dialog.dismiss();
+			
+				mListSafeNumber.setVisibility(View.VISIBLE);
+				mPbLoading.setVisibility(View.GONE);
+				mNodata.setVisibility(View.GONE);
 			}
 		});
-		
+		builder.setView(view);
 		dialog = builder.create();
 		dialog.show();
 	}

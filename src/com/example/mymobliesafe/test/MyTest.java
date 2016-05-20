@@ -11,9 +11,14 @@ import android.test.AndroidTestCase;
 public class MyTest extends AndroidTestCase {
 	public void testAddBlackNumber(){
 		BlackNumberDao dao = new BlackNumberDao(getContext());
-		for (int i = 0; i < 200;i++){
+		for (int i = 0; i < 100;i++){
 			dao.add("1234567" + i, BlackTable.SMS);
 		}
+	}
+	
+	public void testDelete(){
+		BlackNumberDao dao = new BlackNumberDao(getContext());
+		dao.delete("1234567");
 	}
 	
 	public void testFindAllBlackDatas(){

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.example.domain.BlackBean;
 import com.example.domain.ContactBean;
 
 public class ReadContactsEngine {
@@ -51,5 +52,48 @@ public class ReadContactsEngine {
 		cursor.close();
 		return beans;
 
+	}
+	//1，电话日志的数据库
+	//2,通过分析，db不能直接访问，需要内容提供者访问该数据库
+	//3,看上层源码 找到uri content://calls
+	//电话日志记录
+	public static List<ContactBean> calllogs(Context context) {
+		
+		Uri uri = Uri.parse("content://call_log/calls");
+		Cursor cursor = context.getContentResolver().query(uri, new String[]{"number","name"}, null, null, " _id desc");
+		List<ContactBean> datas = new ArrayList<ContactBean>();
+		while (cursor.moveToNext()) {
+			ContactBean bean = new ContactBean();
+			String phone = cursor.getString(0);
+			String name = cursor.getString(1);
+			
+			bean.setPhone(phone);
+			bean.setName(name);
+			
+			datas.add(bean);
+		}
+		return datas;
+	}
+	//获取短信日志
+	public static List<ContactBean> readSmslogs(Context context) {
+		Uri uri = Uri.parse("content://sms");
+		//获取电话记录的联系人游标
+		Cursor cursor = context.getContentResolver().query(uri, new String[]{"address"}, null, null, " _id desc");
+		List<ContactBean> datas = new ArrayList<ContactBean>();
+		
+		while (cursor.moveToNext()) {
+			ContactBean bean = new ContactBean();
+			
+			String phone = cursor.getString(0);//获取号码
+			//String name = cursor.getString(1);//获取名字
+			
+			//bean.setName(name);
+			bean.setPhone(phone);
+			
+			//添加数据
+			datas.add(bean);
+			
+		}
+		return datas;
 	}
 }

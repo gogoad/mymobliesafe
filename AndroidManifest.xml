@@ -27,6 +27,7 @@
    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
    <uses-permission android:name="android.permission.SEND_SMS"/>
+   <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
     <application
         android:allowBackup="true"
@@ -44,6 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.mymobliesafe.HomeActivity"></activity>
+        <activity android:name="com.example.mymobliesafe.SmslogsActivity"></activity>
         <activity android:name="com.example.mymobliesafe.LostFindActivity"></activity>
         <activity android:name="com.example.mymobliesafe.Setup1Activity"></activity>
         <activity android:name="com.example.mymobliesafe.Setup2Activity"></activity>
@@ -52,6 +54,7 @@
         <activity android:name="com.example.mymobliesafe.FriendsActivity"></activity>
         <activity android:name="com.example.mymobliesafe.SettingCenterActivity"></activity>
         <activity android:name="com.example.mymobliesafe.TelSmsSafeActivity"></activity>
+        <activity android:name="com.example.mymobliesafe.CalllogsActivity"></activity>
        
         <receiver android:name="com.example.receiver.BootCompleteReceiver">
             <intent-filter >
