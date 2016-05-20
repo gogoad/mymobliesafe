@@ -4,6 +4,13 @@
     <string name="app_name">逗逼卫士</string>
     <string name="blackmanager">黑名单管理</string>
     <string name="addblackmanager">添加</string>
+    <string name="addblacknumber">添加黑名单号码</string>
+    <string name="smsintercept">短信拦截</string>
+    <string name="phoneintercept">电话拦截</string>
+    <string name="manualimport">手动导入</string>
+    <string name="contactsimport">联系人导入</string>
+    <string name="calllog">通话记录</string>
+    <string name="smslog">短信记录</string>
     <string name="nodata">没有数据</string>
     <string name="action_settings">Settings</string>
     <string name="app_main">主界面</string>
