@@ -94,6 +94,7 @@ public class ReadContactsEngine {
 			datas.add(bean);
 			
 		}
+		
 		return datas;
 	}
 }

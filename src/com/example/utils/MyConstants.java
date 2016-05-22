@@ -9,4 +9,7 @@ public interface MyConstants {
 	String PROTECTTING = "protectting";//是否开启安全保护
 	int MUSIC = 120;
 	String AUTOUPDATE = "autoupdate";//自动更新设置
+	String TOASTX = "toastx";
+	String TOASTY = "toasty";//自定义土司y坐标
+	String STYLEBGINDEX = "styleindex";//归属地背景样式
 }

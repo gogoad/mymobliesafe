@@ -57,5 +57,14 @@
     <string name="setting_center_close">自动更新已关闭</string>
     <string name="setting_center_black_close_openandclose">黑名单拦截设置已经打开-黑名单拦截设置已经关闭</string>
     <string name="setting_center_black">黑名单拦截设置</string>
+    <string name="advanced_tools">高级工具</string>
+    <string name="phone_location_query">手机归属地查询</string>
+    <string name="sms_backups">短信的备份</string>
+    <string name="sms_restore">短信的还原</string>
+    <string name="app_log">程序锁</string>
+    <string name="input_phone">输入号码</string>
+    <string name="query">查询</string>
+    <string name="location">归属地：</string>
+
 
 </resources>
