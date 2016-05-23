@@ -1,19 +1,31 @@
 package com.example.utils;
 
 public class EncryptTools {
-	
-	public static String encrypt(int seed,String str){
+	/**
+	 * @param seed
+	 *      加密的种子
+	 * @param str
+	 *      要加密的字符串
+	 * @return
+	 */
+	public static String encrypt(String str){
 		byte[] bytes = str.getBytes();
 		for (int i = 0; i < bytes.length; i++) {
-			bytes[i] ^= seed;
+			bytes[i] += 1;//对字节加密
 		}
 		return new String(bytes);
 	}
 	
-	public static String decryption(int seed,String str){
+	/**
+	 * @param seed
+	 *     解密的种子
+	 * @param str
+	 * @return
+	 */
+	public static String decryption(String str){
 		byte[] bytes = str.getBytes();
 		for (int i = 0; i < bytes.length; i++) {
-			bytes[i] ^= seed;
+			bytes[i] -= 1;//对字节加密
 		}
 		return new String(bytes);
 	}

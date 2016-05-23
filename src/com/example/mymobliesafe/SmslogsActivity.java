@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.domain.ContactBean;
 import com.example.engine.ReadContactsEngine;
+import com.example.mymobliesafe.activity.BaseFriendsCallSmsActivity;
 
 public class SmslogsActivity extends BaseFriendsCallSmsActivity {
 

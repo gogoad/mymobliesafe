@@ -8,6 +8,7 @@ import javax.security.auth.PrivateCredentialPermission;
 import com.example.domain.BlackBean;
 import com.example.domain.ContactBean;
 import com.example.engine.ReadContactsEngine;
+import com.example.mymobliesafe.activity.BaseFriendsCallSmsActivity;
 import com.example.utils.MyConstants;
 
 import android.app.Activity;

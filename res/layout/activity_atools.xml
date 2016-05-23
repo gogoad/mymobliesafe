@@ -5,22 +5,23 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
-    <TextView  style="@style/tv_title"
-        android:text="@string/advanced_tools"/>
+    <TextView
+        style="@style/tv_title"
+        android:text="@string/advanced_tools" />
+
     <TextView
         android:id="@+id/tv_popup_black_shoudong"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:onClick="phoneQuery"
         android:drawableLeft="@android:drawable/ic_menu_camera"
         android:gravity="center_vertical"
-        android:textColor="#000000"
+        android:onClick="phoneQuery"
         android:text="@string/phone_location_query"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
     <TextView
-        android:textColor="#000000"
         android:id="@+id/tv_popup_black_contacts"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -28,10 +29,20 @@
         android:drawableLeft="@android:drawable/ic_menu_camera"
         android:gravity="center_vertical"
         android:text="@string/sms_backups"
+        android:onClick="smsBackups"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
+    <ProgressBar
+        android:id="@+id/pb_smsbeike_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:visibility="gone" />
+
     <TextView
-        android:textColor="#000000"
         android:id="@+id/tv_popup_black_phonelog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -39,10 +50,10 @@
         android:drawableLeft="@android:drawable/ic_menu_camera"
         android:gravity="center_vertical"
         android:text="@string/sms_restore"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
     <TextView
-        android:textColor="#000000"
         android:id="@+id/tv_popup_black_smslog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -50,6 +61,7 @@
         android:drawableLeft="@android:drawable/ic_menu_camera"
         android:gravity="center_vertical"
         android:text="@string/app_log"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
 </LinearLayout>
